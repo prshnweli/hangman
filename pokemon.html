@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemon Hangman</title
+  >
+</head>
+
+<body>
+
+  <h1>Pokemon Hangman!</h1>
+
+  <div id="game">
+  <p id="myID"></p>
+
+  </div>
+
+  <script type="text/javascript">
+
+  // VARIABLES
+  //=========================================================================================================
+
+    // Creates an array that lists out all of the pokemon.
+    var Pokemon= ["Bulbasaur","Ivysaur","Venusaur","Charmander","Charmeleon","Charizard","Squirtle","Wartortle","Blastoise","Caterpie","Metapod","Butterfree","Weedle","Kakuna","Beedrill","Pidgey","Pidgeotto","Pidgeot","Rattata","Raticate","Spearow","Fearow","Ekans","Arbok","Pikachu","Raichu","Sandshrew","Sandslash","Nidoran","Nidorina","Nidoqueen","Nidoran","Nidorino","Nidoking","Clefairy","Clefable","Vulpix","Ninetales","Jigglypuff","Wigglytuff","Zubat","Golbat","Oddish","Gloom","Vileplume","Paras","Parasect","Venonat","Venomoth","Diglett","Dugtrio","Meowth","Persian","Psyduck","Golduck","Mankey","Primeape","Growlithe","Arcanine","Poliwag","Poliwhirl","Poliwrath","Abra","Kadabra","Alakazam","Machop","Machoke","Machamp","Bellsprout","Weepinbell","Victreebel","Tentacool","Tentacruel","Geodude","Graveler","Golem","Ponyta","Rapidash","Slowpoke","Slowbro","Magnemite","Magneton","Farfetchd","Doduo","Dodrio","Seel","Dewgong","Grimer","Muk","Shellder","Cloyster","Gastly","Haunter","Gengar","Onix","Drowzee","Hypno","Krabby","Kingler","Voltorb","Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing","Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie","MrMime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras","Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew"];
+
+    // start game with score of zero
+    var score = 0;
+
+    
+
+    var guessesMade = [];
+
+    var lives;
+
+    var livesRemain;
+
+    // Randomly chooses a choice from the options array. 
+    var randomPoke = Pokemon[Math.floor(Math.random() * Pokemon.length)];
+
+    console.log(randomPoke);
+    console.log(score);
+
+  // These are my FUNCTIONS
+  //====================================================================================================
+
+
+
+  // Function that updates the score.
+    function updateScore() {
+       document.querySelector("#score").innerHTML = "Score: " + score;
+    }
+
+// changes pokemon to dashes. 
+
+  var answer= [];
+  
+
+  for (var i = 0; i < randomPoke.length; i++) {
+    answer[i] = "-";
+  }
+
+  var remainingLetters = randomPoke.length;
+
+
+
+
+
+console.log(answer);
+
+
+while (remainingLetters > 0) {
+
+
+      document.getElementById("game").innerHTML = answer.join('');
+
+      // Get a guess from the player
+
+  
+      
+     
+        document.onkeyup = function(event) {
+          var guess = event.key}
+      
+
+      
+        // Update the game state with the guess
+
+        for (var j = 0; j < randomPoke.length; j++) {
+
+          if (randomPoke[j] === guess) {
+
+            answer[j] = guess;
+
+            remainingLetters--;
+
+          }
+
+        }
+      };
+// Works when used as an alert. I can't figure out how to do it otherwise..
+    
+
+
+
+  </script>
+
+</body>
+
+</html>
